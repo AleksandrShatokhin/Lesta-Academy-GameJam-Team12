@@ -4,16 +4,19 @@ using UnityEngine;
 
 public class ClickToDestroy : MonoBehaviour
 {
+    private bool canMouseClick = true;
+    public void CanMouseClick(bool value) => canMouseClick = value; 
+
     // Start is called before the first frame update
     void Start()
     {
-
+        canMouseClick = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && canMouseClick)
         {
             Transform clickedObject = GetClickedObject();
             if (clickedObject?.GetComponent<FallingItem>() != null)

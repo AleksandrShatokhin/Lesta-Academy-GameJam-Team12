@@ -8,6 +8,7 @@ public class UIManager : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI highscoreText;
     [SerializeField] Button shopButton;
+    [SerializeField] GameObject shopMenu;
     [SerializeField] private string defaultText;
 
     // Start is called before the first frame update
@@ -19,12 +20,23 @@ public class UIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void OnShopButtonClicked()
     {
+        shopMenu.SetActive(true);
+        this.gameObject.SetActive(false);
+        Camera.main.GetComponent<ClickToDestroy>().CanMouseClick(false);
+        Time.timeScale = 0;
+    }
 
+    public void OnContinueGameButtonClicked()
+    {
+        shopMenu.SetActive(false);
+        this.gameObject.SetActive(true);
+        Camera.main.GetComponent<ClickToDestroy>().CanMouseClick(true);
+        Time.timeScale = 1;
     }
 
     public void SetHighscoreText(int value) => highscoreText.text = defaultText + value;
