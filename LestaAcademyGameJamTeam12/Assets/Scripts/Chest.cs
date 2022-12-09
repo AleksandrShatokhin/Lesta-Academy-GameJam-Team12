@@ -24,6 +24,7 @@ public class Chest : MonoBehaviour
         if (other.GetComponent<FallingItem>() != null)
         {
             gameManager.Score += other.GetComponent<FallingItem>().Value();
+
             Debug.Log(gameManager.Score);
             Destroy(other.gameObject);
         }

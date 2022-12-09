@@ -10,9 +10,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Transform leftSpawnPoint, rightSpawnPoint;
     [SerializeField] private Transform chestPosition;
     [SerializeField] private float waitTimeBetweenSpawns = 2.0f;
+    [SerializeField] private UIManager uIManager;
 
     private float score;
-    
+
     public float Score
     {
         get
@@ -22,6 +23,7 @@ public class GameManager : MonoBehaviour
         set
         {
             score = value;
+            uIManager.SetHighscoreText((int)Score);
         }
     }
 
