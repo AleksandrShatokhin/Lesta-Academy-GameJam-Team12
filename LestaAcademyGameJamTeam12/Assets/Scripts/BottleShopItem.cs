@@ -11,9 +11,9 @@ public class BottleShopItem : ShopItem
     {
         if (CheckForMoney())
         {
-            gameManager.AddHeat(providedHeat);
+            heatController.AddHeat(providedHeat);
             gameManager.Score -= itemPrice;
-            difficultyManager.AddToSpentGold(itemPrice);
+            gameManager.AddToSpentGold(itemPrice);
         }
     }
 }

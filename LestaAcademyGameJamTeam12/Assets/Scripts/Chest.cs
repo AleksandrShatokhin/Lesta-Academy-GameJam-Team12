@@ -6,18 +6,6 @@ public class Chest : MonoBehaviour
 {
     [SerializeField] private GameManager gameManager;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     private void OnTriggerEnter2D(Collider2D other)
     {
         //При столкновении с объектом проверять его тип, и взависимости от него добавлять или убирать очки

@@ -5,13 +5,15 @@ using UnityEngine;
 public class DifficultyManager : MonoBehaviour
 {
 
+    [Header("Components")]
+    [SerializeField] private GameManager gameManager;
+
+    [Header("Spawning Objects")]
     [SerializeField] private float startingWaitTimeBetweenSpawns = 2.0f;
     [SerializeField] private float startingObjectFlyingDuration = 1.5f;
-    [SerializeField] private GameManager gameManager;
     [SerializeField] private float minFlyingDuration = 1.0f;
     [SerializeField] private float maxFlyingDuration = 2.0f;
-
-    private float spentGold = 0f;
+    [SerializeField] private int startingNumberOfSpawningObjects = 2;
 
     private float currentWaitTimeBetweenSpawns;
     public float CurrentWaitTimeBetweenSpawns
@@ -31,6 +33,10 @@ public class DifficultyManager : MonoBehaviour
     void Start()
     {
         currentWaitTimeBetweenSpawns = startingWaitTimeBetweenSpawns;
+        for (int i = 0; i < startingNumberOfSpawningObjects; i++)
+        {
+            StartCoroutine(gameManager.FallingObjectSpawnCoroutine ());
+        }
     }
 
     /*
@@ -39,28 +45,11 @@ public class DifficultyManager : MonoBehaviour
         Duration от 1 до 2
     */
 
-    public void AddToSpentGold(float itemPrice)
-    {
-        spentGold += itemPrice;
-    }
-
     public float GenerateFlyingSpeed()
     {
         float randomNumber = Random.Range(minFlyingDuration, maxFlyingDuration);
         return randomNumber;
     }
 
-    //Возвращает общую сумму денег потраченную на предметы + текущее количество денег
-    private float SumGold() => gameManager.Score + spentGold;
-
-    /* 
-        Монетка - 1
-        Золотая - 3
-        Слиток -5 
-
-        Банан - -1
-        Яблоко - -3
-        Сиги - -5
-        Бутылка - -10
-    */
+    
 }

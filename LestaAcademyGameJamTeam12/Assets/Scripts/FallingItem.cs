@@ -47,13 +47,8 @@ public class FallingItem : MonoBehaviour
             flyingGoal = value;
         }
     }
-    // Update is called once per frame
-    void Update()
-    {
 
-    }
-
-    public IEnumerator CurveMovement()
+    public IEnumerator CurveMovementCoroutine()
     {
         float currentTimePassed = 0f;
         Vector2 start = transform.position;

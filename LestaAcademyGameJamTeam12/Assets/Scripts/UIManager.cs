@@ -12,6 +12,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] private string defaultText;
     [SerializeField] private Slider heatSlider;
     [SerializeField] private GameManager gameManager;
+    
+    
     // Start is called before the first frame update
     void Start()
     {

@@ -11,6 +11,7 @@ public class ShopItem : MonoBehaviour
     [SerializeField] protected int itemPrice = 0;
     [SerializeField] protected GameManager gameManager;
     [SerializeField] protected DifficultyManager difficultyManager;
+    [SerializeField] protected HeatController heatController;
 
     private bool isPurchased = false;
 
@@ -26,7 +27,8 @@ public class ShopItem : MonoBehaviour
 
             isPurchased = true;
             gameManager.Score -= itemPrice;
-            difficultyManager.AddToSpentGold(itemPrice);
+            gameManager.AddToSpentGold(itemPrice);
+            heatController.ChangeDecreaseRate();
 
         }
     }
