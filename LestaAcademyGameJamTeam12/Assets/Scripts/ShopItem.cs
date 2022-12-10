@@ -6,11 +6,14 @@ using UnityEngine.UI;
 
 public class ShopItem : MonoBehaviour
 {
-
-    [SerializeField] private GameObject objectOnScene;
-    [SerializeField] protected int itemPrice = 0;
+    [Header ("Components")]
     [SerializeField] protected GameManager gameManager;
     [SerializeField] protected DifficultyManager difficultyManager;
+    [SerializeField] protected AudioManager audioManager;
+
+
+    [SerializeField] private GameObject correspondingObjectOnScene;
+    [SerializeField] protected int itemPrice = 0;
     [SerializeField] protected HeatController heatController;
 
     private bool isPurchased = false;
@@ -23,8 +26,9 @@ public class ShopItem : MonoBehaviour
             GetComponent<Image>().color = Color.black;
 
             //Активировать предмет
-            objectOnScene.SetActive(true);
+            correspondingObjectOnScene.SetActive(true);
 
+            audioManager.PlayClip("Purchase");
             isPurchased = true;
             gameManager.Score -= itemPrice;
             gameManager.AddToSpentGold(itemPrice);

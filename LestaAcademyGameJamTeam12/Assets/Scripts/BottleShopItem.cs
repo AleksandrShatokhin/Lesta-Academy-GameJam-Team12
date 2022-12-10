@@ -11,6 +11,7 @@ public class BottleShopItem : ShopItem
     {
         if (CheckForMoney())
         {
+            audioManager.PlayClip("Purchase");
             heatController.AddHeat(providedHeat);
             gameManager.Score -= itemPrice;
             gameManager.AddToSpentGold(itemPrice);

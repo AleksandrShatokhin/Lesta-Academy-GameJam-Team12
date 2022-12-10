@@ -382,7 +382,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &131888400
 Rigidbody2D:
@@ -511,7 +511,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &232599059
 GameObject:
@@ -579,7 +579,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &289039394
 GameObject:
@@ -627,7 +627,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &360212429
 GameObject:
@@ -775,10 +775,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d74e5b39f35c0840af3ca8938fe1339, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectOnScene: {fileID: 923221878}
-  itemPrice: 20
   gameManager: {fileID: 139091755}
   difficultyManager: {fileID: 2014128349}
+  audioManager: {fileID: 1041075517}
+  correspondingObjectOnScene: {fileID: 923221878}
+  itemPrice: 20
   heatController: {fileID: 289039395}
 --- !u!1 &421187384
 GameObject:
@@ -857,7 +858,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 421187384}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.16058452, y: 2.6344142, z: 0}
+  m_LocalPosition: {x: -0.16059917, y: 2.6343899, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1039,10 +1040,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66a4a394fac7f1840a1792a84e368817, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectOnScene: {fileID: 0}
-  itemPrice: 30
   gameManager: {fileID: 139091755}
   difficultyManager: {fileID: 2014128349}
+  audioManager: {fileID: 1041075517}
+  correspondingObjectOnScene: {fileID: 0}
+  itemPrice: 30
   heatController: {fileID: 289039395}
   providedHeat: 100
 --- !u!114 &462030666
@@ -1319,7 +1321,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &519420033
 MonoBehaviour:
@@ -1514,7 +1516,7 @@ RectTransform:
   - {fileID: 1858143645}
   - {fileID: 1145840699}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1685,10 +1687,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d74e5b39f35c0840af3ca8938fe1339, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectOnScene: {fileID: 437814445}
-  itemPrice: 30
   gameManager: {fileID: 139091755}
   difficultyManager: {fileID: 2014128349}
+  audioManager: {fileID: 1041075517}
+  correspondingObjectOnScene: {fileID: 437814445}
+  itemPrice: 30
   heatController: {fileID: 289039395}
 --- !u!1 &894222116
 GameObject:
@@ -1880,6 +1883,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
+  - name: Purchase
+    audioClip: {fileID: 8300000, guid: f7e429da5a9949747b6d2edbf81be6b7, type: 3}
+    volume: 0.348
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
   - name: 
     audioClip: {fileID: 0}
     volume: 0
@@ -1899,7 +1908,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1145840698
 GameObject:
@@ -2087,7 +2096,7 @@ RectTransform:
   - {fileID: 1402295883}
   - {fileID: 1315304569}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2252,10 +2261,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d74e5b39f35c0840af3ca8938fe1339, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectOnScene: {fileID: 1494832764}
-  itemPrice: 15
   gameManager: {fileID: 139091755}
   difficultyManager: {fileID: 2014128349}
+  audioManager: {fileID: 1041075517}
+  correspondingObjectOnScene: {fileID: 1494832764}
+  itemPrice: 15
   heatController: {fileID: 289039395}
 --- !u!1 &1315304568
 GameObject:
@@ -2420,7 +2430,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1402295882
 GameObject:
@@ -2911,10 +2921,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d74e5b39f35c0840af3ca8938fe1339, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectOnScene: {fileID: 421187384}
-  itemPrice: 10
   gameManager: {fileID: 139091755}
   difficultyManager: {fileID: 2014128349}
+  audioManager: {fileID: 1041075517}
+  correspondingObjectOnScene: {fileID: 1681119913}
+  itemPrice: 10
   heatController: {fileID: 289039395}
 --- !u!1 &1769541507
 GameObject:
@@ -2945,7 +2956,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1858143644
 GameObject:
@@ -3365,6 +3376,7 @@ MonoBehaviour:
   minFlyingDuration: 1.5
   maxFlyingDuration: 2.5
   startingNumberOfSpawningObjects: 3
+  difficultyCheckpoints: 32000000640000007d000000
 --- !u!4 &2014128350
 Transform:
   m_ObjectHideFlags: 0
@@ -3378,7 +3390,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2096246527
 GameObject:

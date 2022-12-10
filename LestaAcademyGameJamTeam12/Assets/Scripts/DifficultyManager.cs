@@ -15,6 +15,8 @@ public class DifficultyManager : MonoBehaviour
     [SerializeField] private float maxFlyingDuration = 2.0f;
     [SerializeField] private int startingNumberOfSpawningObjects = 2;
 
+    [SerializeField] private int[] difficultyCheckpoints;
+
     private float currentWaitTimeBetweenSpawns;
     public float CurrentWaitTimeBetweenSpawns
     {
@@ -35,8 +37,10 @@ public class DifficultyManager : MonoBehaviour
         currentWaitTimeBetweenSpawns = startingWaitTimeBetweenSpawns;
         for (int i = 0; i < startingNumberOfSpawningObjects; i++)
         {
-            StartCoroutine(gameManager.FallingObjectSpawnCoroutine ());
+            StartCoroutine(gameManager.FallingObjectSpawnCoroutine());
         }
+
+        StartCoroutine(DifficultyChangeCoroutine());
     }
 
     /*
@@ -51,5 +55,18 @@ public class DifficultyManager : MonoBehaviour
         return randomNumber;
     }
 
-    
+    public IEnumerator DifficultyChangeCoroutine()
+    {
+        for (int i = 0; i < difficultyCheckpoints.Length; i++)
+        {
+            while (gameManager.SumGold() < difficultyCheckpoints[i])
+            {
+                yield return null;
+            }
+            StartCoroutine(gameManager.FallingObjectSpawnCoroutine());
+        }
+
+    }
+    //При достижении определенного числа SumGold добавлять новый спаун с помощью запуска доп курутины/уменьшать кулдаун между выстрелами
+
 }

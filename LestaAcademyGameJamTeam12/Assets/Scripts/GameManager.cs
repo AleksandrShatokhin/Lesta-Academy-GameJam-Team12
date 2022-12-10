@@ -44,7 +44,7 @@ public class GameManager : MonoBehaviour
     }
 
     //Возвращает общую сумму денег потраченную на предметы + текущее количество денег
-    private float SumGold() => Score + spentGold;
+    public float SumGold() => Score + spentGold;
 
     public IEnumerator FallingObjectSpawnCoroutine()
     {
