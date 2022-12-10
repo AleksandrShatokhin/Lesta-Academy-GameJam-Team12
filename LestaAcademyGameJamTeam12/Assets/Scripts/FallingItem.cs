@@ -17,6 +17,8 @@ public class FallingItem : MonoBehaviour
         }
     }
 
+    [SerializeField] private GameObject ps_Prefab;
+
     private AnimationCurve fallingTrajectory;
     public AnimationCurve FallingTrajectory
     {
@@ -66,5 +68,11 @@ public class FallingItem : MonoBehaviour
             transform.position = Vector2.Lerp(start, flyingGoal, linearTime) + new Vector2(objectPositionX, 0f);
             yield return null;
         }
+    }
+
+    public void DestroyItem()
+    {
+        Instantiate(ps_Prefab, transform.position, Quaternion.identity);
+        Destroy(this.gameObject);
     }
 }

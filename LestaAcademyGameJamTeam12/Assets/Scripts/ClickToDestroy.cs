@@ -22,7 +22,9 @@ public class ClickToDestroy : MonoBehaviour
             if (clickedObject?.GetComponent<FallingItem>() != null)
             {
                 //Сюда можно добавить анимацию
-                Destroy(clickedObject.gameObject);
+                clickedObject.GetComponent<FallingItem>()?.DestroyItem();
+                
+                //Destroy(clickedObject.gameObject);
             }
         }
     }
