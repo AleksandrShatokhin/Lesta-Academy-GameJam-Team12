@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Transform chestPosition;
     [SerializeField] private float waitTimeBetweenSpawns = 2.0f;
     [SerializeField] private UIManager uIManager;
+    [SerializeField] private AnimationCurve fallingTrajectory;
 
     private float score;
 
@@ -41,6 +42,8 @@ public class GameManager : MonoBehaviour
             GameObject createdItem = Instantiate(randomObject, spawnPosition, Quaternion.identity);
 
             createdItem.GetComponent<FallingItem>().FlyingGoal = chestPosition.position;
+            createdItem.GetComponent<FallingItem>().FallingTrajectory = fallingTrajectory;
+            StartCoroutine(createdItem.GetComponent<FallingItem>().CurveMovement());
             yield return new WaitForSeconds(waitTimeBetweenSpawns);
         }
     }
