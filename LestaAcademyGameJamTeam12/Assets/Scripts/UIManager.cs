@@ -23,7 +23,7 @@ public class UIManager : MonoBehaviour
     public void OnShopButtonClicked()
     {
         shopMenu.SetActive(true);
-        //this.gameObject.SetActive(false);
+        shopButton.gameObject.SetActive(false);
         Camera.main.GetComponent<ClickToDestroy>().CanMouseClick(false);
         Time.timeScale = 0;
     }
@@ -31,7 +31,7 @@ public class UIManager : MonoBehaviour
     public void OnContinueGameButtonClicked()
     {
         shopMenu.SetActive(false);
-        this.gameObject.SetActive(true);
+        shopButton.gameObject.SetActive(true);
         Camera.main.GetComponent<ClickToDestroy>().CanMouseClick(true);
         Time.timeScale = 1;
     }

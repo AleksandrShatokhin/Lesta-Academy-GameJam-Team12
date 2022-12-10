@@ -579,7 +579,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &289039394
 GameObject:
@@ -1417,7 +1417,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &694764538
 GameObject:
@@ -1516,7 +1516,7 @@ RectTransform:
   - {fileID: 1858143645}
   - {fileID: 1145840699}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2096,7 +2096,7 @@ RectTransform:
   - {fileID: 1402295883}
   - {fileID: 1315304569}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2924,7 +2924,7 @@ MonoBehaviour:
   gameManager: {fileID: 139091755}
   difficultyManager: {fileID: 2014128349}
   audioManager: {fileID: 1041075517}
-  correspondingObjectOnScene: {fileID: 1681119913}
+  correspondingObjectOnScene: {fileID: 421187384}
   itemPrice: 10
   heatController: {fileID: 289039395}
 --- !u!1 &1769541507
@@ -3425,5 +3425,5 @@ Transform:
   - {fileID: 437814446}
   - {fileID: 923221879}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
