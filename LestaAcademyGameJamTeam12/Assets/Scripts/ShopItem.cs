@@ -8,12 +8,13 @@ public class ShopItem : MonoBehaviour
 {
 
     [SerializeField] private GameObject objectOnScene;
-    [SerializeField] private int itemPrice = 0;
-    [SerializeField] private GameManager gameManager;
+    [SerializeField] protected int itemPrice = 0;
+    [SerializeField] protected GameManager gameManager;
+    [SerializeField] protected DifficultyManager difficultyManager;
 
     private bool isPurchased = false;
 
-    public void OnShopItemButtonClicked()
+    public virtual void OnShopItemButtonClicked()
     {
         if (!isPurchased && CheckForMoney())
         {
@@ -25,15 +26,12 @@ public class ShopItem : MonoBehaviour
 
             isPurchased = true;
             gameManager.Score -= itemPrice;
+            difficultyManager.AddToSpentGold(itemPrice);
+
         }
     }
 
-    public void OnBottleShopItemButtonClicked()
-    {
-        throw new NotImplementedException();
-    }
-
-    private bool CheckForMoney()
+    protected bool CheckForMoney()
     {
         if (gameManager.Score >= itemPrice)
         {

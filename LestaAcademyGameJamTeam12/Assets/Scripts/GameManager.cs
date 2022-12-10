@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -11,6 +13,13 @@ public class GameManager : MonoBehaviour
     [SerializeField] private UIManager uIManager;
     [SerializeField] private AnimationCurve fallingTrajectory;
     [SerializeField] private DifficultyManager difficultyManager;
+
+    [Range(0, 100)]
+    [SerializeField] private float heat = 100f;
+
+    [SerializeField] private float heatDecreaseRate = 1.0f;
+
+    [SerializeField] private Slider heatSlider;
 
     private float score;
 
@@ -30,6 +39,11 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         StartCoroutine(StartingFallingObjectsCour());
+    }
+
+    private void Update()
+    {
+        DecreaseHeat();
     }
 
     private IEnumerator StartingFallingObjectsCour()
@@ -75,6 +89,26 @@ public class GameManager : MonoBehaviour
     {
         int randomNumber = Random.Range(0, items.Count);
         return items[randomNumber];
+    }
+
+    public void AddHeat(float heat)
+    {
+        this.heat += heat;
+        if (this.heat > 100)
+        {
+            this.heat = 100;
+        }
+    }
+
+    private void DecreaseHeat()
+    {
+        heat -= heatDecreaseRate * Time.deltaTime;
+        heatSlider.value = heat;
+
+        if (heat <= 0)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
     }
 
 }

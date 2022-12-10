@@ -10,23 +10,18 @@ public class UIManager : MonoBehaviour
     [SerializeField] Button shopButton;
     [SerializeField] GameObject shopMenu;
     [SerializeField] private string defaultText;
-
+    [SerializeField] private Slider heatSlider;
+    [SerializeField] private GameManager gameManager;
     // Start is called before the first frame update
     void Start()
     {
         defaultText = highscoreText.text;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public void OnShopButtonClicked()
     {
         shopMenu.SetActive(true);
-        this.gameObject.SetActive(false);
+        //this.gameObject.SetActive(false);
         Camera.main.GetComponent<ClickToDestroy>().CanMouseClick(false);
         Time.timeScale = 0;
     }
