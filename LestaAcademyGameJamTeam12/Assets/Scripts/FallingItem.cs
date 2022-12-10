@@ -4,8 +4,19 @@ using UnityEngine;
 
 public class FallingItem : MonoBehaviour
 {
-    [SerializeField] private float flyingSpeed;
-    [SerializeField] private float duration = 1.0f;
+    private float duration = 1f;
+    public float Duration
+    {
+        get
+        {
+            return duration;
+        }
+        set
+        {
+            duration = value;
+        }
+    }
+
     private AnimationCurve fallingTrajectory;
     public AnimationCurve FallingTrajectory
     {
@@ -39,7 +50,7 @@ public class FallingItem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public IEnumerator CurveMovement()

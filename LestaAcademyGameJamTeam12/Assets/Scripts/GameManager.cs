@@ -6,12 +6,11 @@ public class GameManager : MonoBehaviour
 {
 
     [SerializeField] private List<GameObject> items;
-    [SerializeField] private GameObject coin;
     [SerializeField] private Transform leftSpawnPoint, rightSpawnPoint;
     [SerializeField] private Transform chestPosition;
-    [SerializeField] private float waitTimeBetweenSpawns = 2.0f;
     [SerializeField] private UIManager uIManager;
     [SerializeField] private AnimationCurve fallingTrajectory;
+    [SerializeField] private DifficultyManager difficultyManager;
 
     private float score;
 
@@ -30,7 +29,18 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        StartCoroutine(StartingFallingObjectsCour());
+    }
+
+    private IEnumerator StartingFallingObjectsCour()
+    {
         StartCoroutine(FallingObjectSpawnCour());
+        yield return new WaitForSeconds(0.5f);
+        StartCoroutine(FallingObjectSpawnCour());
+        yield return new WaitForSeconds(0.2f);
+        StartCoroutine(FallingObjectSpawnCour());
+        yield return new WaitForSeconds(0.1f);
+
     }
 
     private IEnumerator FallingObjectSpawnCour()
@@ -43,8 +53,12 @@ public class GameManager : MonoBehaviour
 
             createdItem.GetComponent<FallingItem>().FlyingGoal = chestPosition.position;
             createdItem.GetComponent<FallingItem>().FallingTrajectory = fallingTrajectory;
+
+            float randomFlyingSpeed = difficultyManager.GenerateFlyingSpeed();
+            createdItem.GetComponent<FallingItem>().Duration = randomFlyingSpeed;
+
             StartCoroutine(createdItem.GetComponent<FallingItem>().CurveMovement());
-            yield return new WaitForSeconds(waitTimeBetweenSpawns);
+            yield return new WaitForSeconds(difficultyManager.CurrentWaitTimeBetweenSpawns);
         }
     }
 
@@ -62,4 +76,5 @@ public class GameManager : MonoBehaviour
         int randomNumber = Random.Range(0, items.Count);
         return items[randomNumber];
     }
+
 }
